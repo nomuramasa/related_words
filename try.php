@@ -3,34 +3,49 @@
 
 $word = 'プログラマ';
 
-$word = urlencode($word);
+// $times = 1; // 繰り返し回数
 
-sleep(3); // 3秒休憩 
+$entries = getApiData($word); // APIから受け取る関数実行
+// getApiData($word, 0, $times); 
 
-$url = 'https://api.apitore.com/api/40/wordnet-simple/all?access_token=c3eeb546-506f-4d4f-9f47-019f9bc2e761&word='.$word.'&pos=n%2Cv%2Ca%2Cr';
-
-$data = file_get_contents($url);
-$data = json_decode($data,true); // trueで、stdClassをArrayにできる
-
-$entries = $data['entries']; // 必要なデータセット（〇〇語のブロックが５個ぐらい）
-
-// echo '<pre>'; var_dump($entries);echo '</pre>';  // 全部出力してみる
-
-echo '<hr>';
-
-$synonym = getBlockWords('同義語', $entries); 
-$broader = getBlockWords('上位語', $entries); 
-$narrower = getBlockWords('下位語', $entries);
-
-$component = getBlockWords('構成要素', $entries); 
-$inclusion = getBlockWords('被包含領域', $entries); 
-
-
+$broader = getBlockWords('上位語', $entries); // 上位語の配列
 echo '<pre>'; var_dump($broader); echo '</pre>';  // 欲しいブロックをダンプ
 
-foreach($broader as $word){
 
+
+// if($count < $times){ // まだ全回数終わってなければ更に繰り返す
+	foreach($broader as $word){
+		sleep(3); // 3秒休憩 
+		$entries = getApiData($word); // APIから受け取る関数実行
+		$narrower = getBlockWords('下位語', $entries);
+		echo '<pre>'; var_dump($narrower); echo '</pre>';
+		// getApiData($word, $count, $times);
+	}
+// }
+
+
+
+
+
+// $synonym = getBlockWords('同義語', $entries); 
+// $broader = getBlockWords('上位語', $entries); 
+// $narrower = getBlockWords('下位語', $entries);
+// $component = getBlockWords('構成要素', $entries); 
+// $inclusion = getBlockWords('被包含領域', $entries); 
+
+
+// function getApiData($_word, $count, $times){ // APIからのデータ取得の関数
+function getApiData($_word){ // APIからのデータ取得の関数
+	// $count++; // カウンタ増やす
+
+	$word = urlencode($_word); // 単語をURL用に変換
+	$url = 'https://api.apitore.com/api/40/wordnet-simple/all?access_token=c3eeb546-506f-4d4f-9f47-019f9bc2e761&word='.$word.'&pos=n%2Cv%2Ca%2Cr'; // WordNetのAPIを叩く
+	$data = file_get_contents($url);
+	$data = json_decode($data,true); // trueで、stdClassをArrayにできる
+	$entries = $data['entries']; // 必要なデータセット（〇〇語のブロックが５個ぐらい）
+	return $entries; // 返す
 }
+
 
 function getBlockWords($kind, $blocks){ // 〇〇語のブロックの単語達を返す関数
 	foreach($blocks as $index => $block){ // ブロック（〇〇語）ごとに順番に見ていく
