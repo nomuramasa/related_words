@@ -13,9 +13,10 @@ $data = json_decode($data,true); // trueで、stdClassをArrayにできる
 
 $entries = $data['entries']; // 必要なデータセット（〇〇語のブロックが５個ぐらい）
 
-getIndexNum($entries);
+echo numSynonym($entries); // 同義語のブロック番号を出力
 
-function getIndexNum($blocks){
+
+function numSynonym($blocks){ // 同義語のブロック番号を返す関数
 	foreach($blocks as $index => $block){ // ブロック（〇〇語）ごとに順番に見ていく
 		if(array_search('同義語',$block)){ 
 			return $index; // インデックス番号を返す
