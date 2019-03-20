@@ -20,6 +20,12 @@ echo getBlockIndexNum('下位語',$entries); // 下位語のブロック番号�
 echo getBlockIndexNum('被包含領域',$entries); // 被包含領域語のブロック番号を出力
 
 
+echo '<hr>';
+$num = getBlockIndexNum('上位語',$entries); // 好きな種類を入れる
+$sym = $entries[$num]['words']; // その番号の単語達
+echo '<pre>'; var_dump($sym); echo '</pre>';  // 上位語のブロックをダンプ
+
+
 function getBlockIndexNum($kind, $blocks){ // 〇〇語のブロック番号を返す関数
 	foreach($blocks as $index => $block){ // ブロック（〇〇語）ごとに順番に見ていく
 		if(array_search($kind, $block)){ 
