@@ -1,6 +1,6 @@
 <meta charset='utf8'> <!-- 文字コード -->
 <meta name='viewport' content='width=device-width'> <!-- スマホ対応 -->
-<title>つながり検索</title>
+<title>連想検索3階層サンプル</title>
 
 <!--Bootstrap４に必要なCSSとJavaScriptを読み込み-->
 <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous'>
@@ -9,7 +9,6 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49' crossorigin='anonymous'></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js' integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy' crossorigin='anonymous'></script>
 
-<link rel='icon' href='./favicon.ico'> <!-- ファビコン -->
 
 <style>
 
@@ -58,72 +57,65 @@ body{
 <div class='container'>
 
 	<!-- 入力フォーム -->
-	<form action='' method='get'>
+	<form action='' method='post'>
 		<div class='form-gruop row mx-0'>
 
-			<input name='word' value='スマホの次に来るもの' class='form-control col-4' placeholder='単語を入力'>　<!-- 既に単語入ってたらそれを入れる -->
+			<input name='word' value='ホットケーキ' class='form-control col-4' placeholder='単語を入力'>　<!-- 既に単語入ってたらそれを入れる -->
 
 			<!-- 取得方法 -->
 			<select name='approach'>
-				<option value='google' selected class='form-control' >Google関連語</option>
-				<option value='yahoo'  class='form-control'>Yahooサジェスト</option>
-				<option value='synonym'  class='form-control' >WordNet下位語</option>
+				<option value='google'  selected class='form-control' >連想検索（Google 関連ワード）</span></option>
+				<option value='wordnet' class='form-control' >俯瞰検索（WordNet 上位語）</option>
+				<option value='yahoo'  class='form-control'>候補検索（Yahoo サジェスト）</option>
 			</select>　
 
 			<select name='level'> <!-- 階層選択 -->
 				  <!-- 1から3まで -->
-					<option value='1'  class='form-control col-4'>第1階層</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='1' class='form-control col-4'>1階層</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  <!-- 1から3まで -->
-					<option value='2'  class='form-control col-4'>第2階層</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='2'  class='form-control col-4'>2階層</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  <!-- 1から3まで -->
-					<option value='3' selected class='form-control col-4'>第3階層</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='3'  selected class='form-control col-4'>3階層</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 							</select>　
 
 			<select name='rest'> <!-- 休憩時間 -->
 				  
-					<option value='0'  class='form-control col-4'>0秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='2' selected class='form-control col-4'>2秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='0.5'  class='form-control col-4'>0.5秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='2.5'  class='form-control col-4'>2.5秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='1'  class='form-control col-4'>1秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='3'  class='form-control col-4'>3秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='1.5'  class='form-control col-4'>1.5秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='3.5'  class='form-control col-4'>3.5秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='2'  class='form-control col-4'>2秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='4'  class='form-control col-4'>4秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='2.5'  class='form-control col-4'>2.5秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='4.5'  class='form-control col-4'>4.5秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='3'  class='form-control col-4'>3秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='5'  class='form-control col-4'>5秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='3.5'  class='form-control col-4'>3.5秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='5.5'  class='form-control col-4'>5.5秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='4'  class='form-control col-4'>4秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='6'  class='form-control col-4'>6秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='4.5'  class='form-control col-4'>4.5秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='6.5'  class='form-control col-4'>6.5秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='5' selected class='form-control col-4'>5秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='7'  class='form-control col-4'>7秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='5.5'  class='form-control col-4'>5.5秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='7.5'  class='form-control col-4'>7.5秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='6'  class='form-control col-4'>6秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='8'  class='form-control col-4'>8秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='6.5'  class='form-control col-4'>6.5秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='8.5'  class='form-control col-4'>8.5秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='7'  class='form-control col-4'>7秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='9'  class='form-control col-4'>9秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='7.5'  class='form-control col-4'>7.5秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='9.5'  class='form-control col-4'>9.5秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				  
-					<option value='8'  class='form-control col-4'>8秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
-				  
-					<option value='8.5'  class='form-control col-4'>8.5秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
-				  
-					<option value='9'  class='form-control col-4'>9秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
-				  
-					<option value='9.5'  class='form-control col-4'>9.5秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
-				  
-					<option value='10'  class='form-control col-4'>10秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='10'  class='form-control col-4'>10秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 							</select>
 
+		　<input type='submit' value='検索' class='btn btn-success'> <!-- 検索ボタン -->
 
 		</div>
 	</form>
