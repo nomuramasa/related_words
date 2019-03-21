@@ -49,7 +49,7 @@ $broaders = getBlockWords('上位語', $entries); // 上位語の配列
 
 $bigdata = []; // データをここに入れる
 
-echo "<div class='container'><div class='row mx-0'>";
+// echo "<div class='container'><div class='row mx-0'>";
 // if($count < $times){ // まだ全回数終わってなければ更に繰り返す
 	foreach($broaders as $index => $broader){
 		sleep(3); // 3秒休憩 
@@ -57,20 +57,20 @@ echo "<div class='container'><div class='row mx-0'>";
 		$narrowers = getBlockWords('下位語', $entries);
 		$bigdata[$index]['word'] = $broader; // 第一階層には大きな概念（入力単語の上位語）を
 
-		echo "<div class='col-12 px-0'><a href='https://www.google.com/search?q=".$broader."' target='_blank' class='btn btn-light m-2 border first'>".$broader;
+		// echo "<div class='col-12 px-0'><a href='https://www.google.com/search?q=".$broader."' target='_blank' class='btn btn-light m-2 border first'>".$broader;
 
-		echo "<div class='row mx-0'>";
+		// echo "<div class='row mx-0'>";
 		foreach($narrowers as $n_index => $narrower){
 
 			$bigdata[$index]['child_words'][$n_index] = $narrower; // 第二階層にはその下位語を
 			
-			echo "<object><a href='https://www.google.com/search?q=".$narrower."' target='_blank' class='btn btn-white m-2 text-dark second'>".$narrower."</a></object>";
+			// echo "<object><a href='https://www.google.com/search?q=".$narrower."' target='_blank' class='btn btn-white m-2 text-dark second'>".$narrower."</a></object>";
 		}
 
-		echo "</div>";
-		echo "</a></div>";
+		// echo "</div>";
+		// echo "</a></div>";
 	}
-echo "</div></div>";
+// echo "</div></div>";
 
 
 	// echo '<pre>'; var_dump($bigdata); echo '</pre>'; // 作った連想配列を表示
@@ -123,7 +123,20 @@ function getBlockWords($kind, $blocks){ // 〇〇語のブロックの単語達�
 					$child_words = $info['child_words'];
 				?>
 
-
+				<div class='col-12 px-0'> <!-- 第1階層のボタンの外枠 -->
+					<a href='https://www.google.com/search?q=<?php echo $word; ?>' target='_blank' class='btn btn-light m-2 border first'> <!-- 第1階層のボタン -->
+						<?php echo $word; // 単語出力 ?>
+						<div class='row mx-0'>
+							<?php foreach($child_words as $num => $child_word): ?>
+								<object>
+									<a href='https://www.google.com/search?q=<?php echo $child_word; ?>' target='_blank' class='btn btn-white m-2 text-dark second'> <!-- 第2階層のボタン -->
+										<?php echo $child_word; ?>
+									</a>
+								</object>
+							<?php endforeach; ?>
+						</div>
+					</a>
+				</div>
 
 		<?php endforeach; ?>
 	</div>
