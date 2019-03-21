@@ -25,7 +25,10 @@ function echoWebnetWords($_word){
 			echo "<div class='row mx-0'>";
 			foreach($narrowers as $n_index => $narrower){
 				
-				echo "<object><a href='https://www.google.com/search?q=".$narrower."' target='_blank' class='btn btn-white m-2 text-dark second'>".$narrower;
+				$synonym_color = 'btn-white'; // 入力した単語と同じ階層の単語ボタンは、白色
+				if($narrower == $_word){$synonym_color = 'btn-blue';} // 入力した単語自体であれば、ピンク色
+
+				echo "<object><a href='https://www.google.com/search?q=".$narrower."' target='_blank' class='btn ".$synonym_color." m-2 text-dark second'>".$narrower;
 
 				$entries = getApiData($narrower); // APIから受け取る関数実行
 				$narrowers = getBlockWords('下位語', $entries);
