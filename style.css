@@ -29,5 +29,6 @@ a.btn.second.btn-myword{
   border: solid 1px #ddd;
 }
 a.btn.second.btn-myword:hover{
-	background-color: #fdcd1d;
+	background-color: #fdbd1d;
+  border: solid 1px #ddd;
 }
