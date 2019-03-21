@@ -62,7 +62,7 @@ body{
 			<select name='approach'>
 				<option value='google' <?php if($_GET['approach'] == 'google'){echo 'selected';} ?> class='form-control' >Google関連語</option>
 				<option value='yahoo' <?php if($_GET['approach'] == 'yahoo'){echo 'selected';} ?> class='form-control'>Yahooサジェスト</option>
-				<option value='synonym' <?php if($_GET['approach'] == 'synonym'){echo 'selected';} ?> class='form-control' >WordNet下位語</option>
+				<option value='wordnet' <?php if($_GET['approach'] == 'wordnet'){echo 'selected';} ?> class='form-control' >WordNet概念図</option>
 			</select>　
 
 			<select name='level'> <!-- 階層選択 -->
