@@ -22,7 +22,7 @@ $times = $_GET['level']; // 第何階層までか
 			$word = str_replace(' ', '%20', $_word); // 半角スペースだとエラーになるので%20に直す
 			$word = urlencode($word);
 
-			sleep($_GET['rest']); // ☆数秒休憩 
+			sleep($_GET['rest']); // API叩く前は数秒休憩 
 			
 			if($_GET['approach'] == 'google'){
 				// Googleの関連キーワード
@@ -89,7 +89,7 @@ $times = $_GET['level']; // 第何階層までか
 					<?php endif; ?>
 
 					<?php if($count < $times): // まだ全回数終わってなければ更に繰り返す ?>
-						<?php // ☆sleep($_GET['rest']); // 数秒休憩はここに書けば、１回目は即実行で2回目以降の直前に挟むので、 ?>
+						<?php // sleep($_GET['rest']); // 数秒休憩はここに書くべき？？？ ?>
 						<?php echoWords($rel_word, $count, $times); // $rel_wordは一新、$countは増えてる、$timesはそのまま ?>
 					<?php endif; ?>
 
@@ -114,22 +114,3 @@ $times = $_GET['level']; // 第何階層までか
 
 	<?php // ☆endif; // GoogleとYahooの時だけ ?>
 </div> <!-- container -->
-
-<?php
-
-// 初！ 再帰関数
-// $word = 'あ';
-// $times = 4; // 繰り返し回数
-// factorial($word, 0, $times); 
-
-// function factorial($word, $count, $times) { // $countは今時点の繰り返し数、 $timesは全部で何回繰り返すか
-//     echo $word;
-//     $w = 'い';
-
-//     $count++; // 今$count周目
-// 	  if($count < $times) { // まだ全回数終わってなければ更に繰り返す
-// 	    factorial($w, $count, $times);
-// 	  }
-// }
-
-?>
