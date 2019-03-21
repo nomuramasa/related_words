@@ -1,19 +1,11 @@
+/*図書館の背景*/
 body{
 	background-image: url(img/liblary.jpg); /*図書館画像*/
 	background-size: cover; /*全体に*/
 }
 
-/*大二階層の単語ごとのボタン設定*/
-.btn-white{
-	background-color: #fff;
-	border: solid 1px #ddd;
-}
-.btn-white:hover{
-	/*color:#aaa;*/
-	color:#fff;
-	background-color: #bbb;
-	/*border: solid 1px #888;*/
-}
+
+/*第1〜第3階層で文字サイズを変える*/
 .first{
 	font-size:19px;
 }
@@ -21,6 +13,17 @@ body{
 	font-size:13px;
 }
 
+/*第2階層の単語ボタンの色*/
+.btn-white{
+	background-color: #fff;
+	border: solid 1px #ddd;
+}
+.btn-white:hover{
+	color:#fff;
+	background-color: #bbb;
+}
+
+/*入力した単語のボタンは、色を変える（WordNetの場合のみ）*/
 a.btn.second.btn-myword{
 	background-color: #fdeddd;
   border: solid 1px #ddd;
