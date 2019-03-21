@@ -26,7 +26,7 @@ function echoWebnetWords($_word){
 			foreach($narrowers as $n_index => $narrower){
 				
 				$synonym_color = 'btn-white'; // 入力した単語と同じ階層の単語ボタンは、白色
-				if($narrower == $_word){$synonym_color = 'btn-blue';} // 入力した単語自体であれば、ピンク色
+				if($narrower == $_word){$synonym_color = 'btn-myword';} // 入力した単語自体であれば、ピンク色
 
 				echo "<object><a href='https://www.google.com/search?q=".$narrower."' target='_blank' class='btn ".$synonym_color." m-2 text-dark second'>".$narrower;
 
