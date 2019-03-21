@@ -26,7 +26,7 @@
 
 <?php
 
-$word = 'プログラマ';
+$word = 'レモン';
 
 // APIからの単語あたりの取得データを全て表示してみる
 // $word = urlencode($word); 
@@ -57,14 +57,17 @@ echo "<div class='container'><div class='row mx-0'>";
 		$narrowers = getBlockWords('下位語', $entries);
 		$bigdata[$index]['word'] = $broader; // 第一階層には大きな概念（入力単語の上位語）を
 
-		echo "<div class='col-12 px-0'><a href='https://www.google.com/search?q=".$broader."' target='_blank' class='btn btn-light m-2 border first'>";
+		echo "<div class='col-12 px-0'><a href='https://www.google.com/search?q=".$broader."' target='_blank' class='btn btn-light m-2 border first'>".$broader;
 
+		echo "<div class='row mx-0'>";
 		foreach($narrowers as $n_index => $narrower){
+
 			$bigdata[$index]['child_words'][$n_index] = $narrower; // 第二階層にはその下位語を
 			
-			echo "<object><a href='https://www.google.com/search?q=".$narrower."' target='_blank' class='btn btn-white m-2 text-dark second'></a></object>";
+			echo "<object><a href='https://www.google.com/search?q=".$narrower."' target='_blank' class='btn btn-white m-2 text-dark second'>".$narrower."</a></object>";
 		}
 
+		echo "</div>";
 		echo "</a></div>";
 	}
 echo "</div></div>";
