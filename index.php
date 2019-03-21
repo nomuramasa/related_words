@@ -36,20 +36,20 @@
 
 			<!-- 取得方法 -->
 			<select name='approach'>
-				<option value='google' <?php if($_POST['approach'] == 'google'){echo 'selected';} ?> class='form-control' >Google関連語</option>
-				<option value='yahoo' <?php if($_POST['approach'] == 'yahoo'){echo 'selected';} ?> class='form-control'>Yahooサジェスト</option>
-				<option value='wordnet' <?php if($_POST['approach'] == 'wordnet'){echo 'selected';} ?> class='form-control' >WordNet概念図</option>
+				<option value='google' <?php if($_POST['approach'] == 'google'){echo 'selected';} ?> class='form-control' >連想検索（Google 関連ワード）</span></option>
+				<option value='wordnet' <?php if($_POST['approach'] == 'wordnet'){echo 'selected';} ?> class='form-control' >俯瞰検索（WordNet 上位語）</option>
+				<option value='yahoo' <?php if($_POST['approach'] == 'yahoo'){echo 'selected';} ?> class='form-control'>候補検索（Yahoo サジェスト）</option>
 			</select>　
 
 			<select name='level'> <!-- 階層選択 -->
 				<?php for($l=1; $l<=3; $l++): ?>  <!-- 1から3まで -->
-					<option value='<?php echo $l; ?>' <?php if($l == $_POST['level']){echo 'selected';} ?> class='form-control col-4'>第<?php echo $l; ?>階層</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='<?php echo $l; ?>' <?php if($l == $_POST['level']){echo 'selected';} ?> class='form-control col-4'><?php echo $l; ?>階層</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				<?php endfor; ?>
 			</select>　
 
 			<select name='rest'> <!-- 休憩時間 -->
 				<?php for($t=2; $t<=10; $t+=0.5): ?>  
-					<option value='<?php echo $t; ?>' <?php if($t == $_POST['rest']){echo 'selected';} ?> class='form-control col-4'><?php echo $t; ?>秒</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='<?php echo $t; ?>' <?php if($t == $_POST['rest']){echo 'selected';} ?> class='form-control col-4'><?php echo $t; ?>秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				<?php endfor; ?>
 			</select>
 
