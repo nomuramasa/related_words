@@ -98,9 +98,11 @@ $times = $_GET['level']; // 第何階層までか
 <div class='container'>
 
 	<?php if($_GET['approach'] == 'google' || $_GET['approach'] == 'yahoo'): // GoogleとYahooの時だけ ?>
+		<?php echoGoYaWords($input_word, 0, $times); // 関数「echoWords」を実行 ?>
 
-		<?php echoWords($input_word, 0, $times); // 関数「echoWords」を実行 ?>
+	<?php elseif($_GET['approach'] == 'wordnet'): // WordNetの時だけ ?>
+		<?php echoWebnetWords($input_word); // 関数「echoWords」を実行 ?>
 
-	<?php endif; // GoogleとYahooの時だけ ?>
-	
+	<?php endif; ?>
+
 </div> <!-- container -->

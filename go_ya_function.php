@@ -1,4 +1,4 @@
-		<?php function echoWords($_word, $count, $times){ // 関数 ?>
+		<?php function echoGoYaWords($_word, $count, $times){ // 関数 ?>
 			
 			<?php
 			$count++; // カウンタ増やす
@@ -65,7 +65,7 @@
 
 					<?php if($count < $times): // まだ全回数終わってなければ更に繰り返す ?>
 						<?php // sleep($_GET['rest']); // 数秒休憩はここに書くべき？？？ ?>
-						<?php echoWords($rel_word, $count, $times); // $rel_wordは一新、$countは増えてる、$timesはそのまま ?>
+						<?php echoGoYaWords($rel_word, $count, $times); // $rel_wordは一新、$countは増えてる、$timesはそのまま ?>
 					<?php endif; ?>
 
 					<?php if($count == 3): ?> 

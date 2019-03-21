@@ -1,58 +1,61 @@
 <?php
 
-// $times = 1; // 繰り返し回数
+function echoWebnetWords($_word){
 
-$entries = getApiData($input_word); // APIから受け取る関数実行
-// getApiData($word, 0, $times); 
-	
+	// $times = 1; // 繰り返し回数
 
-$broaders = getBlockWords('上位語', $entries); // 上位語の配列
-// echo '<pre>'; var_dump($broaders); echo '</pre>';  // 欲しいブロックをダンプ
-
-
-echo "<div class='row mx-0'>";
-// if($count < $times){ // まだ全回数終わってなければ更に繰り返す
-	foreach($broaders as $index => $broader){
+	$entries = getApiData($_word); // APIから受け取る関数実行
+	// getApiData($word, 0, $times); 
 		
-		$entries = getApiData($broader); // APIから受け取る関数実行
 
-		echo "<div class='col-12 px-0'><a href='https://www.google.com/search?q=".$broader."' target='_blank' class='btn btn-light m-2 border first'>".$broader;
+	$broaders = getBlockWords('上位語', $entries); // 上位語の配列
+	// echo '<pre>'; var_dump($broaders); echo '</pre>';  // 欲しいブロックをダンプ
 
-		$narrowers = getBlockWords('下位語', $entries);
 
-		echo "<div class='row mx-0'>";
-		foreach($narrowers as $n_index => $narrower){
+	echo "<div class='row mx-0'>";
+	// if($count < $times){ // まだ全回数終わってなければ更に繰り返す
+		foreach($broaders as $index => $broader){
 			
-			echo "<object><a href='https://www.google.com/search?q=".$narrower."' target='_blank' class='btn btn-white m-2 text-dark second'>".$narrower;
+			$entries = getApiData($broader); // APIから受け取る関数実行
 
-			$entries = getApiData($narrower); // APIから受け取る関数実行
+			echo "<div class='col-12 px-0'><a href='https://www.google.com/search?q=".$broader."' target='_blank' class='btn btn-light m-2 border first'>".$broader;
+
 			$narrowers = getBlockWords('下位語', $entries);
 
 			echo "<div class='row mx-0'>";
 			foreach($narrowers as $n_index => $narrower){
 				
-				echo "<object><a href='https://www.google.com/search?q=".$narrower."' target='_blank' class='btn btn-light m-1 text-dark border third'>".$narrower."</a></object>";
+				echo "<object><a href='https://www.google.com/search?q=".$narrower."' target='_blank' class='btn btn-white m-2 text-dark second'>".$narrower;
+
+				$entries = getApiData($narrower); // APIから受け取る関数実行
+				$narrowers = getBlockWords('下位語', $entries);
+
+				echo "<div class='row mx-0'>";
+				foreach($narrowers as $n_index => $narrower){
+					
+					echo "<object><a href='https://www.google.com/search?q=".$narrower."' target='_blank' class='btn btn-light m-1 text-dark border third'>".$narrower."</a></object>";
+				}
+				echo "</div>";
+				echo "</a></object>";
+
 			}
+
 			echo "</div>";
-			echo "</a></object>";
-
+			echo "</a></div>";
 		}
-
-		echo "</div>";
-		echo "</a></div>";
-	}
-echo "</div>";
+	echo "</div>";
 
 
-	// getApiData($word, $count, $times);
-// }
+		// getApiData($word, $count, $times);
+	// }
 
+}
 
-// $synonym = getBlockWords('同義語', $entries); 
-// $broader = getBlockWords('上位語', $entries); 
-// $narrower = getBlockWords('下位語', $entries);
-// $component = getBlockWords('構成要素', $entries); 
-// $inclusion = getBlockWords('被包含領域', $entries); 
+	// $synonym = getBlockWords('同義語', $entries); 
+	// $broader = getBlockWords('上位語', $entries); 
+	// $narrower = getBlockWords('下位語', $entries);
+	// $component = getBlockWords('構成要素', $entries); 
+	// $inclusion = getBlockWords('被包含領域', $entries); 
 
 
 // function getApiData($_word, $count, $times){ // APIからのデータ取得の関数
