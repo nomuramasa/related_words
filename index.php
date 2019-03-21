@@ -4,15 +4,17 @@ require_once('head.php'); // phpQueryの読み込み
 require_once('phpQuery.php'); // phpQueryの読み込み
 
 $input_word = $_GET['word']; // ユーザーが入力した単語
+$approach = $_GET['approach']; 
 $times = $_GET['level']; // 第何階層までか
+
 ?>
 
 <div class='container'>
 
-	<?php //☆if($_GET['approach'] == 'google' || $_GET['approach'] == 'yahoo'): // GoogleとYahooの時だけ ?>
+	<?php if($_GET['approach'] == 'google' || $_GET['approach'] == 'yahoo'): // GoogleとYahooの時だけ ?>
 
 		<?php echoWords($input_word, 0, $times); // 関数「echoWords」を実行 ?>
-
+	<?php endif; // GoogleとYahooの時だけ ?>
 
 		<?php function echoWords($_word, $count, $times){ // 関数 ?>
 			
@@ -39,12 +41,6 @@ $times = $_GET['level']; // 第何階層までか
 				$data_array = json_decode($json_data, true); // 連想配列にデコード
 				$rel_words_obj = $data_array['gossip']['results']; // 第一階層で関係する単語達のオブジェクトをスクレイピング
 
-			}else if($_GET['approach'] == 'synonym'){
-				// 類語
-				$url = 'https://api.apitore.com/api/40/wordnet-simple/all?access_token=c3eeb546-506f-4d4f-9f47-019f9bc2e761&word='.$word.'&pos=n%2Cv%2Ca%2Cr'; 
-				$data = file_get_contents($url);
-				$data = json_decode($data);
-				$rel_words_obj = $data->entries[2]->words;
 			}
 
 			?>
@@ -63,9 +59,6 @@ $times = $_GET['level']; // 第何階層までか
 						// Yahooのサジェストキーワード 
 						$rel_word = $rel_word_obj['key']; // テキストのみ 
 
-					}else if($_GET['approach'] == 'synonym'){
-						// 類語
-						$rel_word = $rel_word_obj; 
 					}
 
 				?>
@@ -112,5 +105,5 @@ $times = $_GET['level']; // 第何階層までか
 			</div> <!-- row -->
 		<?php } ?> <!-- 関数終わり -->
 
-	<?php // ☆endif; // GoogleとYahooの時だけ ?>
+	
 </div> <!-- container -->
