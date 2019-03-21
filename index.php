@@ -11,40 +11,16 @@
 
 <link rel='icon' href='./favicon.ico'> <!-- ファビコン -->
 
-<style>
-
-body{
-	background-image: url(liblary2.jpg); /*図書館画像*/
-	background-size: cover; /*全体に*/
-}
-
-/*大二階層の単語ごとのボタン設定*/
-.btn-white{
-	background-color: #fff;
-	border: solid 1px #ddd;
-}
-.btn-white:hover{
-	/*color:#aaa;*/
-	color:#fff;
-	background-color: #bbb;
-	/*border: solid 1px #888;*/
-}
-.first{
-	font-size:19px;
-}
-.third{
-	font-size:13px;
-}
-
-</style>
+<link href='style.css' rel='stylesheet'>
 
 <!-- ナビ -->
 <nav class='navbar navbar-expand-sm bg-dark mb-3'>
   <div class='container'>
 		<h4 class='my-2 text-light'>
 			つながり検索
-			<a href='sample2.html' target='_blank' class='text-secondary h6'>■</a>
-			<a href='sample3.html' target='_blank' class='text-secondary h6'>■</a>
+			<a href='sample/google_level2.html' target='_blank' class='text-secondary h6'>■</a>
+			<a href='sample/google_level3.html' target='_blank' class='text-secondary h6'>■</a>
+			<a href='sample/wordnet.html' target='_blank' class='text-secondary h6'>■</a>
 		</h4>
 
  </div>
@@ -86,9 +62,9 @@ body{
 
 
 <?php
-require_once('phpQuery.php'); // phpQueryの読み込み
-require_once('go_ya_function.php'); // GoogleとYahooの関数の読み込み
-require_once('wordnet_function.php'); // WordNetの関数の読み込み
+require_once('library/phpQuery.php'); // phpQueryの読み込み
+require_once('function/go_ya.php'); // GoogleとYahooの関数の読み込み
+require_once('function/wordnet.php'); // WordNetの関数の読み込み
 
 $input_word = $_GET['word']; // ユーザーが入力した単語
 $times = $_GET['level']; // 第何階層までか

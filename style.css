@@ -1,0 +1,22 @@
+body{
+	background-image: url(img/liblary.jpg); /*図書館画像*/
+	background-size: cover; /*全体に*/
+}
+
+/*大二階層の単語ごとのボタン設定*/
+.btn-white{
+	background-color: #fff;
+	border: solid 1px #ddd;
+}
+.btn-white:hover{
+	/*color:#aaa;*/
+	color:#fff;
+	background-color: #bbb;
+	/*border: solid 1px #888;*/
+}
+.first{
+	font-size:19px;
+}
+.third{
+	font-size:13px;
+}

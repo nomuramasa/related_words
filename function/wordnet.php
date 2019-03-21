@@ -64,7 +64,7 @@ function getApiData($_word){ // APIからのデータ取得の関数
 
 	$word = urlencode($_word); // 単語をURL用に変換
 	$url = 'https://api.apitore.com/api/40/wordnet-simple/all?access_token=c3eeb546-506f-4d4f-9f47-019f9bc2e761&word='.$word.'&pos=n%2Cv%2Ca%2Cr'; // WordNetのAPIを叩く
-	sleep(3); // 3秒休憩 
+	sleep($_GET['rest']); // API叩く前に数秒休憩 
 	$data = file_get_contents($url);
 	$data = json_decode($data,true); // trueで、stdClassをArrayにできる
 	$entries = $data['entries']; // 必要なデータセット（〇〇語のブロックが５個ぐらい）
