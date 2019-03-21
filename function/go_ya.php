@@ -6,16 +6,16 @@
 			$word = str_replace(' ', '%20', $_word); // 半角スペースだとエラーになるので%20に直す
 			$word = urlencode($word);
 
-			sleep($_GET['rest']); // API叩く前は数秒休憩 
+			sleep($_POST['rest']); // API叩く前は数秒休憩 
 			
-			if($_GET['approach'] == 'google'){
+			if($_POST['approach'] == 'google'){
 				// Googleの関連キーワード
 				$url = 'https://www.google.com/search?q='.$word; // Google検索のurl　半角スペースが入るとエラー
 				$html = file_get_contents($url); // htmlを取得 
 				// var_dump($url); echo '<br>'; var_dump($html); // 確認用
 				$rel_words_obj = phpQuery::newDocument($html)->find('table tr td p.aw5cc'); // 第一階層で関係する単語達のオブジェクトをスクレイピング
 
-			}else if($_GET['approach'] == 'yahoo'){
+			}else if($_POST['approach'] == 'yahoo'){
 				// Yahooのサジェストキーワード
 				$url = 'http://ff.search.yahoo.com/gossip?output=json&command='.$word; // キーワードAPI
 				$json_data = file_get_contents($url); // htmlを取得 
@@ -33,11 +33,11 @@
 
 				foreach($rel_words_obj as $rel_word_obj): 
 				
-					if($_GET['approach'] == 'google'){
+					if($_POST['approach'] == 'google'){
 						// Googleの関連キーワード
 						$rel_word = $rel_word_obj->textContent; 
 
-					}else if($_GET['approach'] == 'yahoo') {
+					}else if($_POST['approach'] == 'yahoo') {
 						// Yahooのサジェストキーワード 
 						$rel_word = $rel_word_obj['key']; // テキストのみ 
 
@@ -64,7 +64,7 @@
 					<?php endif; ?>
 
 					<?php if($count < $times): // まだ全回数終わってなければ更に繰り返す ?>
-						<?php // sleep($_GET['rest']); // 数秒休憩はここに書くべき？？？ ?>
+						<?php // sleep($_POST['rest']); // 数秒休憩はここに書くべき？？？ ?>
 						<?php echoGoYaWords($rel_word, $count, $times); // $rel_wordは一新、$countは増えてる、$timesはそのまま ?>
 					<?php endif; ?>
 
