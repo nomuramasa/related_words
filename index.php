@@ -53,7 +53,9 @@
 				<?php endfor; ?>
 			</select>
 
-		　<input type='submit' value='検索' class='btn btn-success mt-2'> <!-- 検索ボタン -->
+			<span class='text-center col-12 col-lg-auto mt-4'>
+			　<input type='submit' value='検索' class='btn btn-success'> <!-- 検索ボタン -->
+			</span>
 
 		</div>
 	</form>
