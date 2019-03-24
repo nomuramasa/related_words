@@ -35,7 +35,7 @@
 			<input name='word' value='<?php if($_POST["word"]){echo $_POST["word"]; } ?>' class='form-control col-12 col-lg-4' placeholder='単語を入力'>　<!-- 既に単語入ってたらそれを入れる -->
 
 			<!-- 取得方法 -->
-			<select name='approach' class='col-10 col-lg-auto mt-3 text-center'>
+			<select name='approach' class='col-10 col-lg-auto mt-3'>
 				<option value='google' <?php if($_POST['approach'] == 'google'){echo 'selected';} ?> class='form-control' >連想検索（Google 関連ワード）</span></option>
 				<option value='wordnet' <?php if($_POST['approach'] == 'wordnet'){echo 'selected';} ?> class='form-control' >俯瞰検索（WordNet 上位語）</option>
 				<option value='yahoo' <?php if($_POST['approach'] == 'yahoo'){echo 'selected';} ?> class='form-control'>候補検索（Yahoo サジェスト）</option>
