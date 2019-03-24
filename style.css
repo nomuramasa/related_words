@@ -4,6 +4,10 @@ body{
 	background-size: cover; /*全体に*/
 }
 
+/*長い文字がボタンからはみ出ないように*/
+.btn{
+	white-space: normal;
+}
 
 /*第1〜第3階層で文字サイズを変える*/
 .first{
