@@ -32,28 +32,28 @@
 	<form action='./' method='post'>
 		<div class='form-gruop row mx-0'>
 
-			<input name='word' value='<?php if($_POST["word"]){echo $_POST["word"]; } ?>' class='form-control col-4' placeholder='単語を入力'>　<!-- 既に単語入ってたらそれを入れる -->
+			<input name='word' value='<?php if($_POST["word"]){echo $_POST["word"]; } ?>' class='form-control col-12 col-lg-4' placeholder='単語を入力'>　<!-- 既に単語入ってたらそれを入れる -->
 
 			<!-- 取得方法 -->
-			<select name='approach'>
+			<select name='approach' class='col-12 col-lg-auto'>
 				<option value='google' <?php if($_POST['approach'] == 'google'){echo 'selected';} ?> class='form-control' >連想検索（Google 関連ワード）</span></option>
 				<option value='wordnet' <?php if($_POST['approach'] == 'wordnet'){echo 'selected';} ?> class='form-control' >俯瞰検索（WordNet 上位語）</option>
 				<option value='yahoo' <?php if($_POST['approach'] == 'yahoo'){echo 'selected';} ?> class='form-control'>候補検索（Yahoo サジェスト）</option>
 			</select>　
 
-			<select name='level'> <!-- 階層選択 -->
+			<select name='level' class='col-12 col-lg-auto mt-1'> <!-- 階層選択 -->
 				<?php for($l=1; $l<=3; $l++): ?>  <!-- 1から3まで -->
-					<option value='<?php echo $l; ?>' <?php if($l == $_POST['level']){echo 'selected';} ?> class='form-control col-4'><?php echo $l; ?>階層</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='<?php echo $l; ?>' <?php if($l == $_POST['level']){echo 'selected';} ?> class='form-control col-lg-4'><?php echo $l; ?>階層</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				<?php endfor; ?>
 			</select>　
 
-			<select name='rest'> <!-- 休憩時間 -->
+			<select name='rest' class='col-12 col-lg-auto mt-1'> <!-- 休憩時間 -->
 				<?php for($t=2; $t<=10; $t+=0.5): ?>  
-					<option value='<?php echo $t; ?>' <?php if($t == $_POST['rest']){echo 'selected';} ?> class='form-control col-4'><?php echo $t; ?>秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
+					<option value='<?php echo $t; ?>' <?php if($t == $_POST['rest']){echo 'selected';} ?> class='form-control col-lg-4'><?php echo $t; ?>秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				<?php endfor; ?>
 			</select>
 
-		　<input type='submit' value='検索' class='btn btn-success'> <!-- 検索ボタン -->
+		　<input type='submit' value='検索' class='btn btn-success mt-2'> <!-- 検索ボタン -->
 
 		</div>
 	</form>
