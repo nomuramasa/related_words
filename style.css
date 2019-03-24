@@ -4,6 +4,17 @@ body{
 	background-size: cover; /*全体に*/
 }
 
+/*選択肢の高さ*/
+select{
+	height:50px; 
+}
+/*PCでは自動*/
+@media screen and (min-width: 992px) {
+	select{
+		height: auto;
+	}
+}
+
 /*長い文字がボタンからはみ出ないように*/
 .btn{
 	white-space: normal;

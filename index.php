@@ -41,19 +41,19 @@
 				<option value='yahoo' <?php if($_POST['approach'] == 'yahoo'){echo 'selected';} ?> class='form-control'>候補検索（Yahoo サジェスト）</option>
 			</select>　
 
-			<select name='level' class='col-12 col-lg-auto mt-1'> <!-- 階層選択 -->
+			<select name='level' class='col-12 col-lg-auto'> <!-- 階層選択 -->
 				<?php for($l=1; $l<=3; $l++): ?>  <!-- 1から3まで -->
 					<option value='<?php echo $l; ?>' <?php if($l == $_POST['level']){echo 'selected';} ?> class='form-control col-lg-4'><?php echo $l; ?>階層</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				<?php endfor; ?>
 			</select>　
 
-			<select name='rest' class='col-12 col-lg-auto mt-1'> <!-- 休憩時間 -->
+			<select name='rest' class='col-12 col-lg-auto'> <!-- 休憩時間 -->
 				<?php for($t=2; $t<=10; $t+=0.5): ?>  
 					<option value='<?php echo $t; ?>' <?php if($t == $_POST['rest']){echo 'selected';} ?> class='form-control col-lg-4'><?php echo $t; ?>秒毎</option>  <!-- 既に選ばれてる階層は選択済みにする -->
 				<?php endfor; ?>
 			</select>
 
-			<span class='text-center col-12 col-lg-auto mt-4'>
+			<span class='text-center col-12 col-lg-auto mt-4 mt-lg-auto'>
 			　<input type='submit' value='検索' class='btn btn-success'> <!-- 検索ボタン -->
 			</span>
 
