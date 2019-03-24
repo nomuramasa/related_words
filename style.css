@@ -6,7 +6,7 @@ body{
 
 /*選択肢の高さ*/
 select{
-	height:50px; 
+	height:44px; 
 }
 /*PCでは自動*/
 @media screen and (min-width: 992px) {
