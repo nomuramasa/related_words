@@ -27,7 +27,7 @@
 
 			?>
 
-			<div class='row mx-0'>
+			<div class='row'>
 
 				<?php
 

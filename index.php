@@ -30,7 +30,7 @@
 
 	<!-- 入力フォーム -->
 	<form action='./' method='post'>
-		<div class='form-gruop row mx-0'>
+		<div class='form-gruop row'>
 
 			<input name='word' value='<?php if($_POST["word"]){echo $_POST["word"]; } ?>' class='form-control col-12 col-lg-4' placeholder='単語を入力'>　<!-- 既に単語入ってたらそれを入れる -->
 

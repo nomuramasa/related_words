@@ -12,7 +12,7 @@ function echoWebnetWords($_word){
 	// echo '<pre>'; var_dump($broaders); echo '</pre>';  // 欲しいブロックをダンプ
 
 
-	echo "<div class='row mx-0'>";
+	echo "<div class='row'>";
 	// if($count < $times){ // まだ全回数終わってなければ更に繰り返す
 		foreach($broaders as $index => $broader){
 			
@@ -22,7 +22,7 @@ function echoWebnetWords($_word){
 
 			$narrowers = getBlockWords('下位語', $entries);
 
-			echo "<div class='row mx-0'>";
+			echo "<div class='row'>";
 			foreach($narrowers as $n_index => $narrower){
 				
 				$synonym_color = 'btn-white'; // 入力した単語と同じ階層の単語ボタンは、白色
@@ -33,7 +33,7 @@ function echoWebnetWords($_word){
 				$entries = getApiData($narrower); // APIから受け取る関数実行
 				$narrowers = getBlockWords('下位語', $entries);
 
-				echo "<div class='row mx-0'>";
+				echo "<div class='row'>";
 				foreach($narrowers as $n_index => $narrower){
 					
 					echo "<object><a href='https://www.google.com/search?q=".$narrower."' target='_blank' class='btn btn-light m-1 text-dark border third'>".$narrower."</a></object>";
