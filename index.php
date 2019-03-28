@@ -8,8 +8,8 @@
 		<h4 class='my-2 text-light'>
 			連想ワード検索
 			<a href='developer.php' target='_blank' class='text-secondary h6'>■</a>
-		</h4>
-
+    </h4>
+    <p class='text-light mb-0'>〜 頭の中にまだ無い、新しいキーワードを発見できるツールです 〜</p>
  </div>
 </nav>
 
@@ -17,7 +17,7 @@
 
 	<!-- 入力フォーム -->
 	<form action='./' method='post'>
-		<div class='form-gruop row'>
+		<div class='form-gruop row mx-lg-0'>
 
 			<input name='word' value='<?php if($_POST["word"]){echo $_POST["word"]; } ?>' class='form-control col-12 col-lg-4' placeholder='単語を入力'>　<!-- 既に単語入ってたらそれを入れる -->
 
@@ -27,43 +27,54 @@
 
 		</div>
 	</form>
-
-
-  <!-- 最初の説明文 -->
-  <!-- <div id='only_once' class='text-sm-center my-4 balloon rounded rounded-lg p-3 mx-auto col-lg-7 bg-white'>
-    <p class='mb-0 text-sm-center'>
-      なかなか思い通りの検索結果が返って来なくて困ってる人の為の、キーワード発見ツールです！
-      <br class='d-none d-md-block'>
-      まだ頭の中に無い言葉を見つけましょう！
-    </p>
-  </div> -->
-
-
-
 </div>
+
 
 
 <?php
 require_once('library/phpQuery.php'); // phpQueryの読み込み
-require_once('function/go_ya.php'); // GoogleとYahooの関数の読み込み
+require_once('function/go_ya.php'); // 関数の読み込み
 
 // 検索設定
-$_POST['approach'] = 'google';
-$_POST['rest'] = 2; 
+$_POST['approach'] = 'google'; // Google関連ワード検索
+$_POST['rest'] = 2;  // 休憩は2秒
 
 $input_word = $_POST['word']; // ユーザーが入力した単語
-$times = 3; // 第何階層までか
+$times = 3; // 第3階層まで
 ?>
-
 
 <div class='container'>
 
-	<?php if($_POST['approach'] == 'google' || $_POST['approach'] == 'yahoo'): // GoogleとYahooの時だけ ?>
-		<?php echoGoYaWords($input_word, 0, $times); // 関数「echoWords」を実行 ?>
+  <!-- 最初だけの説明文 -->
+  <div id='only_once' class='d-none'>
+    
+    <div class='row mx-0'>
+      <div class='col-12 px-0'> <!-- 第1階層のボタンの外枠 -->
+        <a class='btn btn-light m-2 border first'> <!-- 第1階層のボタン -->
+          入力した単語に関連するキーワード				
+          <div class='row mx-0'>
+            <?php for($i=1; $i<=3; $i++): ?>
+              <object>
+                <a class='btn btn-white m-2 text-dark second'> <!-- 第2階層のボタン -->
+                  第二関連キーワード				
+                  <div class='row mx-0'>
+                    <?php for($k=1; $k<=8; $k++): ?>
+                      <object>
+                        <a class='btn btn-light m-1 text-dark border third'> <!-- 第3階層のボタン -->
+                          第三関連ワード				
+                        </a>
+                      </object>
+                    <?php endfor; ?>
+                  </div>
+                </a>
+              </object>
+            <?php endfor; ?>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- ここまで最初だけ -->
 
-	<?php elseif($_POST['approach'] == 'wordnet'): // WordNetの時だけ ?>
-		<?php echoWebnetWords($input_word); // 関数「echoWords」を実行 ?>
-
-	<?php endif; ?>
-
+  <?php echoGoYaWords($input_word, 0, $times); // 関数「echoWords」を実行 ?>
 </div> <!-- container -->
