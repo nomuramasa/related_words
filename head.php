@@ -1,6 +1,6 @@
 <meta charset='utf8'> <!-- 文字コード -->
 <meta name='viewport' content='width=device-width'> <!-- スマホ対応 -->
-<title>つながり検索</title>
+<title>連想ワード検索</title>
 
 <!--Bootstrap４に必要なCSSとJavaScriptを読み込み-->
 <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous'>

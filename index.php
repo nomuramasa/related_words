@@ -5,12 +5,12 @@
 <!-- ナビ -->
 <nav class='navbar navbar-expand-sm bg-dark mb-3'>
   <div class='container'>
-		<h4 class='my-2 text-light'>
-			連想ワード検索
-			<a href='developer.php' target='_blank' class='text-secondary h6'>■</a>
+    <h4 class='my-2 text-light'>
+      連想ワード検索
     </h4>
     <p class='text-light mb-0'>〜 頭の中にまだ無い、新しいキーワードを発見できるツールです 〜</p>
- </div>
+  </div>
+  <a href='various.php' target='_blank' class='text-secondary h6'>■</a> <!-- 隠しボタン -->
 </nav>
 
 <div class='container'>
@@ -56,12 +56,12 @@ $times = 3; // 第3階層まで
             <?php for($i=1; $i<=3; $i++): ?>
               <object>
                 <a class='btn btn-white m-2 text-dark second'> <!-- 第2階層のボタン -->
-                  第二関連キーワード				
+                  第２関連キーワード				
                   <div class='row mx-0'>
                     <?php for($k=1; $k<=8; $k++): ?>
                       <object>
                         <a class='btn btn-light m-1 text-dark border third'> <!-- 第3階層のボタン -->
-                          第三関連ワード				
+                          第３関連ワード				
                         </a>
                       </object>
                     <?php endfor; ?>

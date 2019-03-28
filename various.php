@@ -4,7 +4,7 @@
 <nav class='navbar navbar-expand-sm bg-dark mb-3'>
   <div class='container'>
 		<h4 class='my-2 text-light'>
-			つながり検索（開発者用）
+			いろいろな検索
 			<a href='sample/google_level2.html' target='_blank' class='text-secondary h6'>■</a>
 			<a href='sample/google_level3.html' target='_blank' class='text-secondary h6'>■</a>
 			<a href='sample/wordnet.html' target='_blank' class='text-secondary h6'>■</a>
