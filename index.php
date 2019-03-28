@@ -8,7 +8,7 @@
     <h4 class='my-2 text-light'>
       連想ワード検索
     </h4>
-    <p class='text-light mb-0'>〜 頭の中にまだ無い、新しいキーワードを発見できるツールです 〜</p>
+    <p class='text-light mb-0'>〜 頭の中にまだ無い、新しいキーワードを発見しよう 〜</p>
   </div>
   <a href='various.php' target='_blank' class='text-secondary h6'>■</a> <!-- 隠しボタン -->
 </nav>
