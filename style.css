@@ -4,6 +4,9 @@ body{
 	background-size: cover; /*全体に*/
 }
 
+
+
+
 /*選択肢の高さ*/
 select{
 	height:44px; 
@@ -47,3 +50,31 @@ a.btn.second.btn-myword:hover{
 	background-color: #fdbd1d;
   border: solid 1px #ddd;
 }
+
+
+/* 説明文の吹き出し */
+/* .balloon {
+	border: solid 3px #777;
+}
+
+.balloon:before {
+	content: "";
+	position: absolute;
+	bottom: -24px;
+	left: 50%;
+	margin-left: -15px;
+	border: 12px solid transparent;
+	border-top: 12px solid #FFF;
+	z-index: 2;
+}
+
+.balloon:after {
+	content: "";
+	position: absolute;
+	bottom: -30px;
+	left: 50%;
+	margin-left: -17px;
+	border: 14px solid transparent;
+	border-top: 14px solid #777;
+	z-index: 1;
+} */
