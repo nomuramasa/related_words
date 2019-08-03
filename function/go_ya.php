@@ -11,9 +11,16 @@
 			if($_POST['approach'] == 'google'){
 				// Googleの関連キーワード
 				$url = 'https://www.google.com/search?q='.$word; // Google検索のurl　半角スペースが入るとエラー
-				$html = file_get_contents($url); // htmlを取得 
+
+				$context = stream_context_create(array('http' => array(
+				'method' => 'GET',
+				'header' => 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36',
+				)));
+
+				$html = file_get_contents($url, false, $context); // htmlを取得 
 				// var_dump($url); echo '<br>'; var_dump($html); // 確認用
-				$rel_words_obj = phpQuery::newDocument($html)->find('.BNeawe.deIvCb.AP7Wnd'); //第一階層で関係する単語達のオブジェクトをスクレイピング
+
+				$rel_words_obj = phpQuery::newDocument($html)->find('#brs .nVcaUb'); //第一階層で関係する単語達のオブジェクトをスクレイピング
 
 			}else if($_POST['approach'] == 'yahoo'){
 				// Yahooのサジェストキーワード
