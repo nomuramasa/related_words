@@ -13,7 +13,7 @@
 				$url = 'https://www.google.com/search?q='.$word; // Google検索のurl　半角スペースが入るとエラー
 				$html = file_get_contents($url); // htmlを取得 
 				// var_dump($url); echo '<br>'; var_dump($html); // 確認用
-				$rel_words_obj = phpQuery::newDocument($html)->find('.nVcaUb'); // 第一階層で関係する単語達のオブジェクトをスクレイピング
+				$rel_words_obj = phpQuery::newDocument($html)->find('.BNeawe.deIvCb.AP7Wnd'); //第一階層で関係する単語達のオブジェクトをスクレイピング
 
 			}else if($_POST['approach'] == 'yahoo'){
 				// Yahooのサジェストキーワード
