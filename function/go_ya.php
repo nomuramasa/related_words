@@ -55,19 +55,19 @@
 					<?php if($count == 1): ?>
 						<div class='col-12 px-0'> <!-- 第1階層のボタンの外枠 -->
 						<a href='https://www.google.com/search?q=<?php echo $rel_word; ?>' target='_blank' class='btn btn-light m-2 border first'> <!-- 第1階層のボタン -->
-						<?php echo $rel_word; // 単語出力 ?>
+						<?php echo $rel_word; ob_flush(); flush(); // 単語出力 ?>
 					<?php endif; ?>
 
 					<?php if($count == 2): ?> 
 						<object>
 						<a href='https://www.google.com/search?q=<?php echo $rel_word; ?>' target='_blank' class='btn btn-white m-2 text-dark second'> <!-- 第2階層のボタン -->
-						<?php echo $rel_word; // 単語出力 ?>
+						<?php echo $rel_word; ob_flush(); flush(); // 単語出力 ?>
 					<?php endif; ?>
 
 					<?php if($count == 3): ?> 
 						<object>
 						<a href='https://www.google.com/search?q=<?php echo $rel_word; ?>' target='_blank' class='btn btn-light m-1 text-dark border third'> <!-- 第3階層のボタン -->
-						<?php echo $rel_word; // 単語出力 ?>
+						<?php echo $rel_word; ob_flush(); flush(); // 単語出力 ?>
 					<?php endif; ?>
 
 					<?php if($count < $times): // まだ全回数終わってなければ更に繰り返す ?>

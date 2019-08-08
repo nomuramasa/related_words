@@ -21,9 +21,22 @@ select{
 	white-space: normal;
 }
 
+
+/*フワッと表示*/
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+/* @-webkit-keyframes */
+
 /*第1〜第3階層で文字サイズを変える*/
 .first{
 	font-size:19px;
+  animation: fadeIn 1s ease 0s 1 normal;
+
+}
+.second{
+  animation: fadeIn 1s ease 0s 1 normal;
 }
 .third{
 	font-size:13px;
@@ -54,3 +67,7 @@ a.btn.second.btn-myword:hover{
 #only_once .btn{
 	pointer-events: none;
 }
+
+
+
+
