@@ -1,8 +1,4 @@
 /*図書館の背景*/
-body{
-	background-image: url(img/liblary.jpg); /*図書館画像*/
-	background-size: cover; /*全体に*/
-}
 
 
 /*選択肢の高さ*/
