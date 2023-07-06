@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <link href='favicon.ico' rel='icon'>
   <?php require_once('common/head.php'); ?>
 </head>
 

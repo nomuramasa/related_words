@@ -2,7 +2,9 @@
 <nav class='navbar navbar-expand-sm bg-dark mb-3'>
   <div class='container'>
     <h4 class='my-2 text-light'>
-      連想ワード検索
+      <a href='/' class='text-light'>
+        連想ワード検索
+      </a>
     </h4>
     <p class='text-light mb-0'>〜 頭の中にまだ無い、新しいキーワードを発見しよう 〜</p>
   </div>
