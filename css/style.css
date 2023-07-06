@@ -1,6 +1,6 @@
 /* 本棚の背景 */
 body {
-	background-image: url(img/bookshelf.jpg);
+	background-image: url('../img/bookshelf.jpg');
 	background-size: cover;
 }
 
