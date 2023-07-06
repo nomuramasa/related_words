@@ -38,9 +38,6 @@
         </a>
       </div>
     </div>
-
-    <?php echoGoYaWords($input_word, 0, $times); // 関数「echoWords」を実行 
-    ?>
-  </div> <!-- container -->
+  </div>
 </body>
 </html>
