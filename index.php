@@ -2,16 +2,15 @@
 
 <script src='script.js'></script> <!-- Javascript読み込み -->
 
-<!-- ナビ -->
-<!-- <nav class='navbar navbar-expand-sm bg-dark mb-3'>
+<!-- タイトルと説明 -->
+<nav class='navbar navbar-expand-sm bg-dark mb-3'>
   <div class='container'>
     <h4 class='my-2 text-light'>
       連想ワード検索
     </h4>
     <p class='text-light mb-0'>〜 頭の中にまだ無い、新しいキーワードを発見しよう 〜</p>
   </div>
-  <a href='various.php' target='_blank' class='text-secondary h6'>■</a>
-</nav> -->
+</nav>
 
 <div class='container'>
 
