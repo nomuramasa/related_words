@@ -1,0 +1,57 @@
+/* 本棚の背景 */
+body {
+	background-image: url(img/bookshelf.jpg);
+	background-size: cover;
+}
+
+/* PCでは高さ自動 */
+@media screen and (min-width: 992px) {
+	select {
+		height: auto;
+	}
+}
+
+/* ワードをふわっと表示 */
+@keyframes fadeIn {
+	0% {
+		opacity: 0
+	}
+
+	100% {
+		opacity: 1
+	}
+}
+
+/* 長い文字がボタンからはみ出ないように */
+.btn {
+	white-space: normal;
+}
+
+/* 第1〜第3階層のボタン */
+.first {
+	font-size: 19px;
+	animation: fadeIn 1s ease 0s 1 normal;
+}
+
+.second {
+	animation: fadeIn 1s ease 0s 1 normal;
+}
+
+.third {
+	font-size: 13px;
+}
+
+.btn-white {
+	background-color: #fff;
+	border: solid 1px #ddd;
+}
+
+.btn-white:hover {
+	color: #fff;
+	background-color: #bbb;
+}
+
+/* 説明サンプルのボタンは無効 */
+#only_once .btn {
+	pointer-events: none;
+}
